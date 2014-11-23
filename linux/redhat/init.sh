@@ -1,12 +1,13 @@
 #!/bin/bash
 
+if [ ! -d ~/work ]; then
+  mkdir ~/work
+fi
+WORK_DIRECTORY=~/work
+
 sudo yum update -y
 sudo yum install -y git vim curl wget
 
 # for vim
-cp ../.vimrc ~/.vimrc
-mkdir -p ~/.vim/bundle
-git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
-# on finish, please execute :NeoBundleInstall
-
+. ../init_vim.sh
 
