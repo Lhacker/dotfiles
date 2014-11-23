@@ -1,4 +1,3 @@
-
 "clipboard <-> register
 "set guioptions+=a " for gui vim
 "set clipboard+=autoselect " for cui vim
@@ -80,6 +79,7 @@ if has('vim_starting')
   set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+set whichwrap=b,s,h,l,<,>,[,]
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
