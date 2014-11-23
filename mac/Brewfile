@@ -1,0 +1,22 @@
+update
+upgrade
+
+# brew-cask
+tap phinze/homebrew-cask
+install brew-cask
+
+#install
+install curl
+install wget
+install zsh
+install git
+install tmux
+
+install gcc
+install node
+install scala
+install ghc
+install erlang
+install ocaml
+
+clean
