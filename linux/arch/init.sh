@@ -5,8 +5,11 @@ if [ ! -d ~/work ]; then
 fi
 WORK_DIRECTORY=~/work
 
+# install apps
 sudo pacman -Syu
-sudo pacman -S git vim curl wget
+sudo pacman -S git svn vim curl wget
+sudo pacman -S the_silver_searcher
 
-# for vim
-. ../init_vim.sh
+# init common parts
+. ../init_common_settings.sh
+

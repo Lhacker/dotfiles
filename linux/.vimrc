@@ -1,3 +1,9 @@
+set nocompatible
+filetype plugin indent on
+
+"embed plugin for tag moving
+runtime macros/matchit.vim
+
 "clipboard <-> register
 "set guioptions+=a " for gui vim
 "set clipboard+=autoselect " for cui vim
@@ -47,6 +53,8 @@ augroup END
 "set digits behavior to decimal
 "set nrformats=
 
+set pastetoggle=<f5>
+
 colorscheme default
 colorscheme molokai
 "colorscheme hybrid
@@ -54,10 +62,23 @@ colorscheme molokai
 syntax on
 
 "#------------------------------ 
+"# netrw.vim
+"#------------------------------ 
+" tree view style
+let g:netrw_liststyle = 3
+" hide CVS, .** file
+"let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+" open at right
+let g:netrw_altv = 1
+" open at bottom
+let g:netrw_alto = 1
+
+"#------------------------------ 
 "# key mappings
 "#------------------------------ 
 "escape key
-inoremap <C-k> <Esc>
+noremap <C-k> <Esc>
+noremap! <C-k> <Esc>
 
 "swap semicolon <=> colon
 noremap ; :
@@ -85,7 +106,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
 
-filetype plugin indent on     " Required!
+"filetype plugin indent on     " Required!
 
 "Installation check.
 NeoBundleCheck
@@ -121,22 +142,7 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
 "html5.vim
-NeoBundle 'taichouchou2/html5.vim' 
-"html5 tags
-syn keyword htmlTagName contained article aside audio bb canvas command
-syn keyword htmlTagName contained datalist details dialog embed figure
-syn keyword htmlTagName contained header hgroup keygen mark meter nav output
-syn keyword htmlTagName contained progress time ruby rt rp section time
-syn keyword htmlTagName contained source figcaption
-syn keyword htmlArg contained autofocus autocomplete placeholder min max
-syn keyword htmlArg contained contenteditable contextmenu draggable hidden
-syn keyword htmlArg contained itemprop list sandbox subject spellcheck
-syn keyword htmlArg contained novalidate seamless pattern formtarget
-syn keyword htmlArg contained formaction formenctype formmethod
-syn keyword htmlArg contained sizes scoped async reversed sandbox srcdoc
-syn keyword htmlArg contained hidden role
-syn match   htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
-syn match   htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
+NeoBundle 'othree/html5.vim' 
 
 "css3-syntax
 NeoBundle 'hail2u/vim-css3-syntax'
@@ -152,6 +158,6 @@ let g:lightline = {
   \ 'component': {
   \   'readonly': '%{&readonly?" ":""}'
   \ },
-  \ 'separator': { 'left': '>', 'right': '<' },
+  \ 'separator': {},
   \ 'subseparator': { 'left': '>', 'right': '<' }
   \ }
