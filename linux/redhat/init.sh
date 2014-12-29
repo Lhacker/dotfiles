@@ -6,6 +6,8 @@ fi
 WORK_DIRECTORY=~/work
 
 # install apps
+sudo yum clean all
+sudo yum update -y
 rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 sudo yum update -y
 sudo yum install -y git svn vim curl wget
