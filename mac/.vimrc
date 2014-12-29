@@ -1,3 +1,9 @@
+set nocompatible
+filetype plugin indent on
+
+"embed plugin for tag moving
+runtime macros/matchit.vim
+
 "backup 
 set backupdir=~/vim_backup 
 
@@ -51,52 +57,62 @@ augroup END
 "set digits behavior to decimal
 "set nrformats=
 
+set pastetoggle=<f5>
+
 "colorscheme
 colorscheme molokai
 "colorscheme Tomorrow
 "colorscheme hybrid-light
 syntax on
 
-"#------------------------------ 
+"#------------------------------
+"# netrw.vim
+"#------------------------------
+" tree view style
+let g:netrw_liststyle = 3
+" hide CVS, .** file
+"let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+" open at right
+let g:netrw_altv = 1
+" open at bottom
+let g:netrw_alto = 1
+
+"#------------------------------
 "# key mappings
-"#------------------------------ 
+"#------------------------------
 "escape key
 noremap <C-k> <Esc>
-inoremap <C-k> <Esc>
+noremap! <C-k> <Esc>
 
 "swap semicolon <=> colon
 noremap ; :
 noremap : ;
 
-"#------------------------------ 
+"#------------------------------
 "# Status line
-"#------------------------------ 
+"#------------------------------
 "set statusline=%t\%=[%{&ff}]\[%{&fileencoding}]
 set laststatus=2
 "for lightline.vim
 set t_Co=256
 
-"#------------------------------ 
+"#------------------------------
 "# NeoBundle Settings 
-"#------------------------------ 
+"#------------------------------
 if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-"call neobundle#begin(expand('~/.vim/bundle/'))
-"NeoBundleFetch 'Shougo/neobundle.vim'
-"call neobundle#end()
-
-filetype plugin indent on     " Required!
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
+"filetype plugin indent on " Required!
 
 "Installation check.
-if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-  "finish
-endif
+NeoBundleCheck
 
 "lightline.vim
 NeoBundle 'itchyny/lightline.vim'
@@ -118,6 +134,7 @@ NeoBundle 'thinca/vim-quickrun'
  
 "neocomplete 
 NeoBundle 'Shougo/neocomplete.vim' 
+let g:neocomplete#enable_at_startup=1
  
 "vim-ref 
 NeoBundle 'thinca/vim-ref' 
@@ -133,22 +150,7 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
 "html5.vim
-NeoBundle 'taichouchou2/html5.vim' 
-"html5 tags
-syn keyword htmlTagName contained article aside audio bb canvas command
-syn keyword htmlTagName contained datalist details dialog embed figure
-syn keyword htmlTagName contained header hgroup keygen mark meter nav output
-syn keyword htmlTagName contained progress time ruby rt rp section time
-syn keyword htmlTagName contained source figcaption
-syn keyword htmlArg contained autofocus autocomplete placeholder min max
-syn keyword htmlArg contained contenteditable contextmenu draggable hidden
-syn keyword htmlArg contained itemprop list sandbox subject spellcheck
-syn keyword htmlArg contained novalidate seamless pattern formtarget
-syn keyword htmlArg contained formaction formenctype formmethod
-syn keyword htmlArg contained sizes scoped async reversed sandbox srcdoc
-syn keyword htmlArg contained hidden role
-syn match   htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
-syn match   htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
+NeoBundle 'othree/html5.vim' 
 
 "css3-syntax
 NeoBundle 'hail2u/vim-css3-syntax'
