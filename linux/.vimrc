@@ -148,7 +148,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 
 "vim-javascript-syntax
-NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle 'pangloss/vim-javascript'
 
 "emmet-vim
 NeoBundle 'mattn/emmet-vim'
