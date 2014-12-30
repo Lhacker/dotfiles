@@ -13,5 +13,5 @@ sudo pacman -S git subversion vim curl wget
 sudo pacman -S the_silver_searcher
 
 # init common parts
-. $CURRENT_DIR/../init_common_settings.sh
+bash $CURRENT_DIR/../init_common_settings.sh
 

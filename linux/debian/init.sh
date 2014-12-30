@@ -18,5 +18,5 @@ sudo apt-get install -y silversearcher-ag
 sudo apt-get install -y oracle-java8-installer
 
 # init common parts
-. $CURRENT_DIR/../init_common_settings.sh
+bash $CURRENT_DIR/../init_common_settings.sh
 

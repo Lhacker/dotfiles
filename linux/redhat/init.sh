@@ -16,5 +16,5 @@ sudo yum install -y git subversion vim curl wget
 sudo yum install -y the_silver_searcher
 
 # init common parts
-. $CURRENT_DIR/../init_common_settings.sh
+bash $CURRENT_DIR/../init_common_settings.sh
 
