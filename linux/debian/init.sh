@@ -5,8 +5,10 @@ if [ ! -d ~/work ]; then
 fi
 WORK_DIRECTORY=~/work
 
-cat ./.bash_profile > ~/.bash_profile && . ~/.bash_profile
-cat ./.bashrc > ~/.bashrc && . ~/.bashrc
+CURRENT_DIR=$(cd $(dirname $0); pwd)
+
+cat $CURRENT_DIR/.bash_profile > ~/.bash_profile && . ~/.bash_profile
+cat $CURRENT_DIR/.bashrc > ~/.bashrc && . ~/.bashrc
 
 # install apps
 sudo add-apt-repository ppa:webupd8team/java
@@ -16,5 +18,5 @@ sudo apt-get install -y silversearcher-ag
 sudo apt-get install -y oracle-java8-installer
 
 # init common parts
-. ../init_common_settings.sh
+. $CURRENT_DIR/../init_common_settings.sh
 
