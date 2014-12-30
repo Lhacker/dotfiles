@@ -11,7 +11,7 @@ cat ./.bashrc > ~/.bashrc && . ~/.bashrc
 # install apps
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update -y
-sudo apt-get install -y git svn vim curl wget
+sudo apt-get install -y git subversion vim curl wget
 sudo apt-get install -y silversearcher-ag
 sudo apt-get install -y oracle-java8-installer
 

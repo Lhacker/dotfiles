@@ -7,7 +7,7 @@ WORK_DIRECTORY=~/work
 
 # install apps
 sudo pacman -Syu
-sudo pacman -S git svn vim curl wget
+sudo pacman -S git subversion vim curl wget
 sudo pacman -S the_silver_searcher
 
 # init common parts
