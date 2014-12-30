@@ -1,22 +1,42 @@
-update
-upgrade
+update || true
+upgrade || true
 
 # brew-cask
-tap phinze/homebrew-cask
-install brew-cask
+tap phinze/homebrew-cask || true
+install brew-cask || true
 
 #install
-install curl
-install wget
-install zsh
-install git
-install tmux
+install curl || true
+install wget || true
+install zsh || true
+install git || true
+install subversion || true
+install tmux || true
+install tree || true
+install the_silver_searcher || true
+install openssl || true
+install openssh || true
 
-install gcc
-install node
-install scala
-install ghc
-install erlang
-install ocaml
+install gcc || true
 
-clean
+install io || true
+install clisp || true
+install erlang || true
+install gauche || true
+#install gcc || true
+install ghc || true
+install gnu-prolog || true
+install go || true
+install leiningen || true
+install node || true
+install ocaml || true
+install python || true
+install ruby || true
+install scala || true
+install sbt || true
+
+install ruby-build || true
+install rbenv || true
+install pyenv || true
+
+clean || true
