@@ -7,6 +7,9 @@ WORK_DIRECTORY=~/work
 
 CURRENT_DIR=$(cd $(dirname $0); pwd)
 
+cat $CURRENT_DIR/.bash_profile >> ~/.bash_profile && . ~/.bash_profile
+cat $CURRENT_DIR/.bashrc >> ~/.bashrc && . ~/.bashrc
+
 # install apps
 sudo yum clean all
 sudo yum update -y

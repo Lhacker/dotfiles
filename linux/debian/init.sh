@@ -7,8 +7,8 @@ WORK_DIRECTORY=~/work
 
 CURRENT_DIR=$(cd $(dirname $0); pwd)
 
-cat $CURRENT_DIR/.bash_profile > ~/.bash_profile && . ~/.bash_profile
-cat $CURRENT_DIR/.bashrc > ~/.bashrc && . ~/.bashrc
+cat $CURRENT_DIR/.bash_profile >> ~/.bash_profile && . ~/.bash_profile
+cat $CURRENT_DIR/.bashrc >> ~/.bashrc && . ~/.bashrc
 
 # install apps
 sudo add-apt-repository ppa:webupd8team/java

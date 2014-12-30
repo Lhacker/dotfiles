@@ -7,6 +7,9 @@ WORK_DIRECTORY=~/work
 
 CURRENT_DIR=$(cd $(dirname $0); pwd)
 
+cat $CURRENT_DIR/.zsh_profile >> ~/.zsh_profile && . ~/.zsh_profile
+cat $CURRENT_DIR/.zshrc >> ~/.zshrc && . ~/.zshrc
+
 # install apps
 sudo pacman -Syu
 sudo pacman -S git subversion vim curl wget
