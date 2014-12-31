@@ -3,12 +3,12 @@
 if [ ! -d ~/work ]; then
   mkdir ~/work
 fi
-WORK_DIRECTORY=~/work
+WORK_DIR=~/work
 
-CURRENT_DIR=$(cd $(dirname $0); pwd)
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-cat $CURRENT_DIR/.zsh_profile >> ~/.zsh_profile && . ~/.zsh_profile
-cat $CURRENT_DIR/.zshrc >> ~/.zshrc && . ~/.zshrc
+cat $SCRIPT_DIR/.zsh_profile >> ~/.zsh_profile && . ~/.zsh_profile
+cat $SCRIPT_DIR/.zshrc >> ~/.zshrc && . ~/.zshrc
 
 # install apps
 sudo pacman -Syu
@@ -16,5 +16,5 @@ sudo pacman -S git subversion vim curl wget
 sudo pacman -S the_silver_searcher
 
 # init common parts
-bash $CURRENT_DIR/../init_common_settings.sh
+bash $SCRIPT_DIR/../init_common_settings.sh
 
