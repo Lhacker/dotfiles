@@ -1,6 +1,11 @@
-set nocompatible
-filetype plugin indent on
+"encodings
+set encoding=utf-8
+scriptencoding utf-8
 
+if &compatible
+  set nocompatible
+endif
+filetype plugin indent on
 "embed plugin for tag moving
 runtime macros/matchit.vim
 
@@ -18,9 +23,10 @@ set hidden
 "set file rename command
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))|:w
 
-"encodings
-scriptencoding utf-8
-set encoding=utf-8
+"mute
+set t_vb=
+set visualbell
+set noerrorbells
 
 "backspace
 set backspace=indent,eol,start
@@ -34,7 +40,7 @@ set number
  
 "tab width
 set expandtab 
-set ts=2 sw=2 sts=2 
+set tabstop=2 shiftwidth=2 softtabstop=2
 
 "set wildmode=longest:full,full
 "set wildmode=longest:full,list
@@ -164,7 +170,7 @@ NeoBundle 'mattn/emmet-vim'
 filetype plugin indent on 
 
 "python settings
-autocmd Filetype python setlocal ts=4 sts=4 sw=4
+autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 "golang settings
 if $GOROOT != ''
@@ -175,3 +181,6 @@ if $GOROOT != ''
   filetype plugin indent on
   syntax on
 endif
+
+"custom commands
+"command! java :!javac % && java %<
