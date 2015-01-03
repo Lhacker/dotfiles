@@ -39,4 +39,8 @@ install ruby-build || true
 install rbenv || true
 install pyenv || true
 
+# swi-prolog
+tap Homebrew/homebrew-x11 || true
+install swi-prolog || true
+
 clean || true
