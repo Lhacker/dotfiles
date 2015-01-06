@@ -61,7 +61,7 @@ augroup highlightDoubleByteSpace
 augroup END
 
 "set digits behavior to decimal
-"set nrformats=
+set nrformats=
 
 set pastetoggle=<f5>
 
