@@ -60,7 +60,11 @@ augroup END
 "set digits behavior to decimal
 set nrformats=
 
+" toggle paste mode
 set pastetoggle=<f5>
+
+" cancel highlight
+noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 colorscheme default
 colorscheme molokai
