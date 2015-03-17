@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#sudo apt-get install -y git
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo '' >> ~/.bash_profile
