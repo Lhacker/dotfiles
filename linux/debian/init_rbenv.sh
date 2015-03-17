@@ -7,3 +7,4 @@ echo '' >> ~/.bash_profile
 echo '#rbenv' >> ~/.bash_profile
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+source .bash_profile

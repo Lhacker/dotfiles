@@ -7,3 +7,4 @@ echo '' >> ~/.zsh_profile
 echo '#rbenv' >> ~/.zsh_profile
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zsh_profile
 echo 'eval "$(rbenv init -)"' >> ~/.zsh_profile
+source .zsh_profile
