@@ -1,6 +1,11 @@
-set nocompatible
-filetype plugin indent on
+"encodings
+set encoding=utf-8
+scriptencoding utf-8
 
+if &compatible
+  set nocompatible
+endif
+filetype plugin indent on
 "embed plugin for tag moving
 runtime macros/matchit.vim
 
@@ -10,14 +15,16 @@ runtime macros/matchit.vim
 "set clipboard+=unnamed
 set clipboard=unnamedplus
 
-"default encoding utf-8
-set encoding=utf-8
+"move buffer without saving
+set hidden
 
 "set file rename command
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))|:w
 
-"move buffer without saving
-set hidden
+"mute
+set t_vb=
+set visualbell
+set noerrorbells
 
 "backspace
 set backspace=indent,eol,start
@@ -31,7 +38,7 @@ set number
  
 "tab width
 set expandtab 
-set ts=2 sw=2 sts=2 
+set tabstop=2 shiftwidth=2 softtabstop=2
 
 set wildmode=longest:full,list 
 set whichwrap=b,s,h,l,<,>,[,]
@@ -51,9 +58,13 @@ augroup highlightDoubleByteSpace
 augroup END
 
 "set digits behavior to decimal
-"set nrformats=
+set nrformats=
 
+" toggle paste mode
 set pastetoggle=<f5>
+
+" cancel highlight
+noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 colorscheme default
 colorscheme molokai
@@ -113,6 +124,14 @@ NeoBundleCheck
 
 " lightline.vim 
 NeoBundle 'itchyny/lightline.vim'
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'component': {
+  \   'readonly': '%{&readonly?" ":""}'
+  \ },
+  \ 'separator': {},
+  \ 'subseparator': { 'left': '>', 'right': '<' }
+  \ }
 
 " color schemes
 NeoBundle 'tomasr/molokai'
@@ -148,16 +167,10 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 
 "vim-javascript-syntax
-NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle 'pangloss/vim-javascript'
 
 "emmet-vim
 NeoBundle 'mattn/emmet-vim'
 
-let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'component': {
-  \   'readonly': '%{&readonly?" ":""}'
-  \ },
-  \ 'separator': {},
-  \ 'subseparator': { 'left': '>', 'right': '<' }
-  \ }
+"custom commands
+"command! java :!javac % && java %<

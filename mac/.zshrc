@@ -1,5 +1,3 @@
-export PATH=/usr/local/bin:$PATH
-
 autoload colors
 colors
 
@@ -23,11 +21,9 @@ alias rm='rm -i'
 
 
 # cd_ls
-function cd_ls {
-    \cd $1;
-    ls;
+function cd {
+  builtin cd "$@" && ls
 }
-alias cd=cd_ls
 
 # open
 alias chrome="open -a Google\ Chrome"
@@ -56,7 +52,7 @@ eval "$(pyenv init -)"
 
 # Node.js(nvm)
 source ~/.nvm/nvm.sh
-nvm use "v0.11.12"
+nvm use "v0.11.14"
 
 # golang
 export GOPATH=$HOME/_go
