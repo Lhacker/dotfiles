@@ -7,8 +7,8 @@ WORK_DIRECTORY=~/work
 
 CURRENT_DIR=$(cd $(dirname $0); pwd)
 
-cat $CURRENT_DIR/.zsh_profile >> ~/.zsh_profile && . ~/.zsh_profile
-cat $CURRENT_DIR/.zshrc >> ~/.zshrc && . ~/.zshrc
+cat $CURRENT_DIR/.zsh_profile >> ~/.zsh_profile && source ~/.zsh_profile
+cat $CURRENT_DIR/.zshrc >> ~/.zshrc && source ~/.zshrc
 
 # install apps
 sudo pacman -Syu
