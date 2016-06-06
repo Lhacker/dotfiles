@@ -7,8 +7,8 @@ WORK_DIR=~/work
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-cat $SCRIPT_DIR/.zsh_profile >> ~/.zsh_profile && . ~/.zsh_profile
-cat $SCRIPT_DIR/.zshrc >> ~/.zshrc && . ~/.zshrc
+cat $SCRIPT_DIR/.zsh_profile >> ~/.zsh_profile && source ~/.zsh_profile
+cat $SCRIPT_DIR/.zshrc >> ~/.zshrc && source ~/.zshrc
 
 # install apps
 sudo pacman -Syu

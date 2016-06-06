@@ -7,8 +7,8 @@ WORK_DIR=~/work
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-cat $SCRIPT_DIR/.bash_profile >> ~/.bash_profile && . ~/.bash_profile
-cat $SCRIPT_DIR/.bashrc >> ~/.bashrc && . ~/.bashrc
+cat $SCRIPT_DIR/.bash_profile >> ~/.bash_profile && source ~/.bash_profile
+cat $SCRIPT_DIR/.bashrc >> ~/.bashrc && source ~/.bashrc
 
 # install apps
 sudo yum clean all
