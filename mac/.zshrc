@@ -18,7 +18,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ..='cd ..'
 alias ls='ls -G'
 alias rm='rm -i'
-
+alias cddownload='cd ~/Downloads'
+alias cddesktop='cd ~/Desktop'
 
 # cd_ls
 function cd {
@@ -43,18 +44,31 @@ zstyle ':completion:*:default' menu select=1
 #bindkey '\[[1;9D': backward-word
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# plenv
+if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+
+# cpanm
+# ```
+# $ curl -LO http://xrl.us/cpanm
+# $ chmod +x cpanm
+# ```
+export PATH="$HOME/cpanm:$PATH"
+
 
 # Node.js(nvm)
 source ~/.nvm/nvm.sh
-nvm use "v0.11.14"
+nvm use "v5.0.0"
+
 
 # golang
-export GOPATH=$HOME/_go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/shiryu/.gvm/bin/gvm-init.sh" ]] && source "/Users/shiryu/.gvm/bin/gvm-init.sh"

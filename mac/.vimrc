@@ -87,6 +87,8 @@ let g:netrw_altv = 1
 " open at bottom
 let g:netrw_alto = 1
 
+autocmd FileType netrw setl bufhidden=wipe
+
 "#------------------------------
 "# key mappings
 "#------------------------------
@@ -97,6 +99,8 @@ noremap! <C-k> <Esc>
 "swap semicolon <=> colon
 noremap ; :
 noremap : ;
+
+noremap / /\v
 
 "#------------------------------
 "# Status line
@@ -171,20 +175,33 @@ NeoBundle 'pangloss/vim-javascript'
 "emmet-vim
 NeoBundle 'mattn/emmet-vim'
 
+"vim-elixir
+NeoBundle 'elixir-lang/vim-elixir' 
+
+"vim-erlang-runtime
+NeoBundle 'vim-erlang/vim-erlang-runtime'
+
+"vim-erlang-omnicomplete
+NeoBundle 'vim-erlang/vim-erlang-omnicomplete'
+
 filetype plugin indent on 
+
+"java settings
+autocmd Filetype java setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 "python settings
 autocmd Filetype python setlocal tabstop=4 shiftwidth=4 softtabstop=4
 
 "golang settings
-if $GOROOT != ''
-  filetype off
-  filetype plugin indent off
-  set rtp+=$GOROOT/misc/vim
-  filetype on
-  filetype plugin indent on
-  syntax on
-endif
+autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 "custom commands
-"command! java :!javac % && java %<
+command! Java :!javac % && java %< && rm %<.class
+command! Scala :!scalac % && scala %< && rm %<.class
+command! Cpp :!clang++ % && ./a.out
+command! Perl :!perl %
+command! R :!R --vanilla --slave < %
+command! Clisp :!clisp %
+command! Clispi :!clisp -i %
+command! Ghc :!stack ghc % && ./%< && rm %< %<.hi %<.o
+command! Go :!go build % && ./%< && rm %<
